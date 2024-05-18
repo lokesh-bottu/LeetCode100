@@ -4,8 +4,15 @@ class Solution {
         int cols = matrix[0].length;
         for (int m = 0; m<rows; m++) {
             if (target >= matrix[m][0] && matrix[m][cols-1] >= target) {
-                for(int n = 0;n<cols;n++) {
-                    if (target == matrix[m][n]) return true;
+                int left = 0;
+                int right = cols -1;
+                while(left <=right) {
+                    int mid = (left+right) /2;
+                    if (matrix[m][mid] == target) return true;
+                    else if (matrix[m][mid] > target) 
+                        right = mid -1;
+                    else 
+                        left = mid +1;
                 }
             }
         }
