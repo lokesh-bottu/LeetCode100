@@ -15,18 +15,18 @@ public:
             cout<< xaxis[i]<<","<<yaxis[i]<<endl;
         }
         for (int item =0;item<xaxis.size();item++) {
-            // if (item > 0 && xaxis[item-1] == xaxis[item]) {
+            if ((item > 0 && xaxis[item-1] != xaxis[item])|| item ==0) {
                 for(int x =0;x<matrix[0].size();x++) {
                     matrix[xaxis[item]][x] = 0;
                 }
-            // }
+            }
         }
         for (int item =0;item<yaxis.size();item++) {
-            // if (item > 0 && yaxis[item-1] != yaxis[item]) {
+            if ((item > 0 && yaxis[item-1] != yaxis[item]) || item ==0) {
                 for(int x =0;x<matrix.size();x++) {
                     matrix[x][yaxis[item]] = 0;
                 }
-            // } 
+            } 
         }
     }
 };
