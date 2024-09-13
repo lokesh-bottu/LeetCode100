@@ -1,0 +1,5 @@
+# Write your MySQL query statement below
+WITH CTE AS (SELECT E.NAME Employee,SALARY,D.NAME, DENSE_RANK() OVER (PARTITION BY D.ID ORDER BY SALARY DESC) RNK FROM Employee E 
+INNER JOIN Department D ON D.ID = E.DEPARTMENTID
+ORDER BY NAME,SALARY DESC)
+SELECT NAME Department, Employee, Salary from CTE where RNK <= 3;
